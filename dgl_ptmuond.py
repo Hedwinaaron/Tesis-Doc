@@ -78,28 +78,28 @@ for i in range(0,Entries):
             xaxis.append(inv_Uppt)
             ressolution.append(res)
             
-            if 0.0<res<pt_bin[0]+0.005:
+            if 0.0<inv_Uppt<pt_bin[0]+0.005:
                 den[0]+=1
-                sum_resolution[0]+=res
+                sum_resolution[0]+=abs(res)
             
-            if (pt_bin[1]-0.005)<res<(pt_bin[1]+0.005):
+            if (pt_bin[1]-0.005)<inv_Uppt<(pt_bin[1]+0.005):
                 den[1]+=1
-                sum_resolution[1]+=res
+                sum_resolution[1]+=abs(res)
             
-            if (pt_bin[2]-0.005)<res<(pt_bin[2]+0.005):
+            if (pt_bin[2]-0.005)<inv_Uppt<(pt_bin[2]+0.005):
                 den[2]+=1
-                sum_resolution[2]+=res
-            if (pt_bin[3]-0.005)<res<(pt_bin[3]+0.005):
+                sum_resolution[2]+=abs(res)
+            if (pt_bin[3]-0.005)<inv_Uppt<(pt_bin[3]+0.005):
                 den[3]+=1
-                sum_resolution[3]+=res
+                sum_resolution[3]+=abs(res)
             
-            if (pt_bin[4]-0.005)<res<(pt_bin[4]+0.005):
+            if (pt_bin[4]-0.005)<inv_Uppt<(pt_bin[4]+0.005):
                 den[4]+=1
-                sum_resolution[4]+=res
+                sum_resolution[4]+=abs(res)
             
             
 for s in range(5):
-    average_resolution[s]= sum_resolution[s]/den[s]
+    average_resolution[s]= abs(sum_resolution[s])/den[s]
     
 print(den, sum_resolution, average_resolution)
 can.cd()
