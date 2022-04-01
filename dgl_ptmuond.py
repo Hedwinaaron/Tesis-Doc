@@ -104,14 +104,14 @@ for s in range(5):
 print(den, sum_resolution, average_resolution)
 can.cd()
 h1.Draw()
-can.SaveAs("do_ndgl_pt.png")
+can.SaveAs("plots/do_ndgl_pt.png")
 
 can2.cd()    
 h2.Draw()
-can2.SaveAs("up_dgl_pt.png")
+can2.SaveAs("plots/up_dgl_pt.png")
 can5.cd()    
 h3.Draw()
-can5.SaveAs("Resolutions_hist.png")
+can5.SaveAs("plots/Resolutions_hist.png")
 
 
 x=np.array(xaxis)
@@ -123,7 +123,7 @@ gr.GetYaxis().SetTitle( 'Average Resolution' )
 gr.GetYaxis().SetRangeUser( -0.1,0.1 )
 can3.cd()
 gr.Draw('PA*')
-can3.SaveAs("Average_Resolution.png")
+can3.SaveAs("plots/Average_Resolution.png")
 
 gp = ROOT.TGraph( k, x, y )
 gp.SetTitle( 'Pt Resolution' )
@@ -132,5 +132,5 @@ gp.GetYaxis().SetTitle( 'Resolution' )
 gp.GetYaxis().SetRangeUser( -0.1,0.1 )
 can4.cd()
 gp.Draw('PA*')
-can4.SaveAs("Resolution.png")
+can4.SaveAs("plots/Resolution.png")
     
