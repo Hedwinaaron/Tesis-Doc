@@ -17,6 +17,18 @@ Entries=tree.GetEntries()
 
 
 #create and fill the histogram
+can1  = ROOT.TCanvas("can1", "hist", 1400,700)
+can2 = ROOT.TCanvas("can2", "hist", 1400,700)
+can3  = ROOT.TCanvas("can3", "hist", 1400,700)
+can4 = ROOT.TCanvas("can4", "hist", 1400,700)
+can5 = ROOT.TCanvas("can5", "hist", 1400,700)
+can6= ROOT.TCanvas("can6", " hist", 1400,700)
+can7= ROOT.TCanvas("can7", "hist", 1400,700)
+can8= ROOT.TCanvas("can8", "hist", 1400,700)
+can9= ROOT.TCanvas("can9", "hist", 1400,700)
+can10= ROOT.TCanvas("can10", "hist", 1400,700)
+can11= ROOT.TCanvas("can11", "hist", 1400,700)
+
 h1 = ROOT.TH1D("h1", "Down dGl", 500, 0.0, 500.0)
 h2 = ROOT.TH1D("h2", "Up dGl", 500, 0.0, 500.0)
 h3= ROOT.TH1D("h3", "Resolution hist", 200, -1, 1)
@@ -113,32 +125,71 @@ outHistFile = ROOT.TFile.Open ( "Res_hist.root" ,"RECREATE")
 outHistFile.cd()
 
 #Hstograms pf pt distribution in upper and lower half
+can1.cd()
 h1.Write("down_ndgl_pt")
+h1.Draw()
+can1.SaveAs("plots/histograms/down_ndgl_pt.png")
 
+can2.cd()
 h2.Write("up_dgl_pt")
+h2.Draw()
+can2.SaveAs("plots/histograms/up_dgl_pt.png")
 
 #histogram of resolution distribution
+can3.cd()
 h3.Write("Resolutions_hist")
-
+h3.Draw()
+can3.SaveAs("plots/histograms/Resolutions_hist.png")
 #Histograms of resolution distribution per pt interval 
 
 h4.Write("pt_30-40_hist")
-
+can4.cd()
+h4.Fit("gaus")
+h4.Draw()
+can4.SaveAs("plots/histograms/pt_30-40_hist.png")
 
 h5.Write("pt_40-50_hist")
+can5.cd()
+h5.Fit("gaus")
+h5.Draw()
+can5.SaveAs("plots/histograms/pt_40-50_hist.png")
 
 h6.Write("pt_50-70_hist")
+can6.cd()
+h6.Fit("gaus")
+h6.Draw()
+can6.SaveAs("plots/histograms/pt_50-70_hist.png")
 
 h7.Write("pt_70-100_hist")
+can7.cd()
+h7.Fit("gaus")
+h7.Draw()
+can7.SaveAs("plots/histograms/pt_70-100_hist.png")
+
 
 h8.Write("pt_100-150_hist")
+can8.cd()
+h8.Fit("gaus")
+h8.Draw()
+can8.SaveAs("plots/histograms/pt_100-150_hist.png")
 
 h9.Write("pt_150-200_hist")
+can9.cd()
+h9.Fit("gaus")
+h9.Draw()
+can9.SaveAs("plots/histograms/pt_150-200_hist.png")
 
 h10.Write("pt_200-350_hist")
+can10.cd()
+h10.Fit("gaus")
+h10.Draw()
+can10.SaveAs("plots/histograms/pt_200-350_hist.png")
 
 h11.Write("pt_350-500_hist")
-
+can11.cd()
+h11.Fit("gaus")
+h11.Draw()
+can11.SaveAs("plots/histograms/pt_350-500_hist.png")
 #closing output file
 outHistFile.Close()
 
